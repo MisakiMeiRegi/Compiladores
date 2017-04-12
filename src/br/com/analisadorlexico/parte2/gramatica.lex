@@ -15,24 +15,24 @@ private void imprimir(String descricao, String lexema) {
 
 
 BRANCO = [\n| |\t|\r]
-ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
+INTEGER = 0|[1-9][0-9]*
+STRING = [_|a-z|A-Z]
+DOUBLE = [0-9|,|0-9]*
 SOMA = "+"
 SUBTRACAO = "-"
 DIVISAO = "/"
-
-INTEIRO = 0|[1-9][0-9]*
+MULTIPLICACAO = "*"
 
 %%
 
 "if"                         { imprimir("Palavra reservada if", yytext()); }
 "for"                         { imprimir("Palavra reservada for", yytext()); }
-"then"                       { imprimir("Palavra reservada then", yytext()); }
 {BRANCO}                     { imprimir("Espaço em branco", yytext()); }
-{ID}                         { imprimir("Identificador", yytext()); }
 {SOMA}                         { imprimir("Operador de soma", yytext()); }
 {SUBTRACAO}                         { imprimir("Operador de subtração", yytext()); }
 {DIVISAO}                         { imprimir("Operador de divisão", yytext()); }
-
-{INTEIRO}                     { imprimir("Número Inteiro", yytext()); }
-
+{INTEGER}                     { imprimir("Número Inteiro", yytext()); }
+{STRING}                     { imprimir("Imprimi uma String", yytext()); }
+{DOUBLE}                     { imprimir("Número real", yytext()); }
+{MULTIPLICACAO}                     { imprimir("Operador de multiplicação", yytext()); }
 . { throw new RuntimeException("Caractere inválido " + yytext()); }

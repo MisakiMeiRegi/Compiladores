@@ -12,7 +12,7 @@ import java.io.StringReader;
 public class Test {
 public static void main(String[] args) throws IOException {
 
-        String expr = "if 2 + 3+a then for 2 - 3";
+        String expr = "if 2 + 3+a then for 2 - 3,2";
 
         AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(expr));
         lexical.yylex();
