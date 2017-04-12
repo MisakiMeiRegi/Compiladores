@@ -13,7 +13,7 @@ private void imprimir(String descricao, String lexema) {
 %class AnalisadorLexico
 %type void
 
-
+ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
 BRANCO = [\n| |\t|\r]
 INTEGER = 0|[1-9][0-9]*
 STRING = [_|a-z|A-Z]
@@ -27,6 +27,7 @@ MULTIPLICACAO = "*"
 
 "if"                         { imprimir("Palavra reservada if", yytext()); }
 "for"                         { imprimir("Palavra reservada for", yytext()); }
+{ID}                         { imprimir("Identificador", yytext()); }
 {BRANCO}                     { imprimir("Espaço em branco", yytext()); }
 {SOMA}                         { imprimir("Operador de soma", yytext()); }
 {SUBTRACAO}                         { imprimir("Operador de subtração", yytext()); }
