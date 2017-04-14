@@ -11,28 +11,45 @@ private void imprimir(String descricao, String lexema) {
 
 
 %class AnalisadorLexico
-%type void
+%type String
+
+BRANCO              = [\s]*
+OPERADOR_ARITMETICO = [\+|\*|\-|\/]
+ID                  = [_|[a-zA-Z]]*
+NUMEROS_NATURAIS    = [0-9]+
+TEXTO               = '[\s|_|a-zA-Z|0-9|\+]*'
+NUMEROS_REIAS       = [0-9]+,[0-9]+
+OU                  = "||"
+E                   = "&&"
+IGUAL               = "=="
+NAO_IGUAL           = "!="
+MENOR               = "<"
+MAIOR               = ">"
+MAIOR_IGUAL         = ">="
+MENOR_IGUAL         = "<="
+NAO                 = "!"
+INICIO_BLOCO        = "{"
+FIM_BLOCO           = "}"
+ATRIBUICAO			= "="
 
 
-BRANCO = [\n| |\t|\r]
-ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
-SOMA = "+"
-SUBTRACAO = "-"
-DIVISAO = "/"
-
-INTEIRO = 0|[1-9][0-9]*
-
+OPERADOR_RELACIONAL = {IGUAL}|{NAO_IGUAL}|{MENOR}|{MAIOR}|{MENOR_IGUAL}|{MAIOR_IGUAL}
+OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 %%
 
-"if"                         { imprimir("Palavra reservada if", yytext()); }
-"for"                         { imprimir("Palavra reservada for", yytext()); }
-"then"                       { imprimir("Palavra reservada then", yytext()); }
-{BRANCO}                     { imprimir("Espaço em branco", yytext()); }
-{ID}                         { imprimir("Identificador", yytext()); }
-{SOMA}                         { imprimir("Operador de soma", yytext()); }
-{SUBTRACAO}                         { imprimir("Operador de subtração", yytext()); }
-{DIVISAO}                         { imprimir("Operador de divisão", yytext()); }
-
-{INTEIRO}                     { imprimir("Número Inteiro", yytext()); }
-
-. { throw new RuntimeException("Caractere inválido " + yytext()); }
+"then"                  { imprimir("Palavra reservada THEN", yytext()); }
+"if"                    { imprimir("Palavra reservada IF", yytext()); }
+"for"                   { imprimir("Palavra reservada FOR", yytext()); }
+"while"                 { imprimir("Palavra reservada WHILE", yytext()); }
+{ID}                    { imprimir("Identificador", yytext()); }
+{OPERADOR_ARITMETICO}   { imprimir("Operador", yytext()); }
+{NUMEROS_NATURAIS}      { imprimir("Inteiro", yytext()); }
+{TEXTO}                 { imprimir("String", yytext()); }
+{NUMEROS_REIAS}         { imprimir("Real", yytext()); }
+{OPERADOR_LOGICO}       { imprimir("Operador Lógico", yytext()); }
+{OPERADOR_RELACIONAL}   { imprimir("Operador Relacional", yytext()); }
+{INICIO_BLOCO}          { imprimir("Inicio do bloco de código", yytext()); }
+{FIM_BLOCO}             { imprimir("Fim do bloco de código", yytext()); }
+{ATRIBUICAO}			{ imprimir("Fim do bloco de código", yytext());}
+{BRANCO}                { }
+.                       {throw new RuntimeException("Caractere inválido: '"+ yytext()+"'"); }
