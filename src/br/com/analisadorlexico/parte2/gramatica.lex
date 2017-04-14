@@ -14,10 +14,10 @@ private void imprimir(String descricao, String lexema) {
 %type void
 
 ID = [_|a-z|A-Z][a-z|A-Z|0-9|_]*
-BRANCO = [\n| |\t|\r]
+BRANCO = [\n| |\t|\r]*
 INTEGER = 0|[1-9][0-9]*
-STRING = [_|a-z|A-Z]
-DOUBLE = [0-9|,|0-9]*
+STRING = _* [a-z|A-Z]*
+DOUBLE = [0-9]+ , [0-9]+
 SOMA = "+"
 SUBTRACAO = "-"
 DIVISAO = "/"
