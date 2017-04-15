@@ -171,6 +171,112 @@ public class TelaGerador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void executar() throws Exception {
+        int cont = 0;
+
+        String expr;
+        //jText = textArea1;
+
+        AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(txtEntrada.getText()));
+        String resultado = "";
+
+        while (true) {
+            Token token = lexical.yylex();
+            if (token == null) {
+
+                txtSaida.setText(resultado);
+
+                return;
+            }
+            switch (token) {
+
+                case OPERADOR_ARITMETICO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Operador_Aritmético> " + lexical.lexeme + "\n";
+                    break;
+
+                case OPERADOR_LOGICO:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + "<Operador_Lógico> " + lexical.lexeme + "\n";
+                    break;
+
+                case ATRIBUICAO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Operador_Atribuição> " + lexical.lexeme + "\n";
+                    break;
+
+                case OPERADOR_RELACIONAL:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Operador_Relacional> " + lexical.lexeme + "\n";
+                    break;
+
+                case COMENTARIO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Comentario> " + lexical.lexeme + "\n";
+                    break;
+
+                case LINHA:
+                    cont++;
+                    break;
+
+                case ERROR:
+                    //cont ++;                    
+                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido \n";
+                    break;
+
+                case ID:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<ID> " + lexical.lexeme + "\n";
+                    break;
+
+                case NUMEROS_REIAS:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Numeros_reais> " + lexical.lexeme + "\n";
+                    break;
+                case TEXTO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Texto> " + lexical.lexeme + "\n";
+                    break;
+                case THEN:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Então> " + lexical.lexeme + "\n";
+                    break;
+                case WHILE:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Laço> " + lexical.lexeme + "\n";
+                    break;
+                case FOR:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Laço> " + lexical.lexeme + "\n";
+                    break;
+                case IF:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Condicional> " + lexical.lexeme + "\n";
+                    break;
+                case NUMEROS_NATURAIS:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Numero> " + lexical.lexeme + "\n";
+                    break;
+
+                case INICIO_BLOCO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Inicio_algoritmo>" + lexical.lexeme + "\n";
+                    break;
+
+                case FIM_BLOCO:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
+                    break;
+
+                default:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + "<" + lexical.lexeme + ">" + cont++;
+                    break;
+            }
+        }
+
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         file = new JFileChooser();
         file.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -181,6 +287,7 @@ public class TelaGerador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarActionPerformed
+
         jflex.Main.generate(file.getSelectedFile());
         btnAnalisar.setEnabled(true);
         txtEntrada.setEnabled(true);
@@ -190,8 +297,8 @@ public class TelaGerador extends javax.swing.JFrame {
     private void btnAnalisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisarActionPerformed
         AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(txtEntrada.getText()));
         try {
-            txtSaida.setText(lexical.yylex());
-        } catch (IOException ex) {
+            executar();
+        } catch (Exception ex) {
             Logger.getLogger(TelaGerador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAnalisarActionPerformed

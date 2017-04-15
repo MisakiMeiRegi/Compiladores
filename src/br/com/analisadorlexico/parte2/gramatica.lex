@@ -1,17 +1,14 @@
 package br.com.analisadorlexico.parte2;
+import static br.com.analisadorlexico.parte2.Token.*;
 %%
 
 %{
-
-private void imprimir(String descricao, String lexema) {
-    System.out.println(lexema + " - " + descricao);
-}
-
+public String lexeme;
 %}
 
 
 %class AnalisadorLexico
-%type String
+%type Token
 
 BRANCO              = [\s]*
 OPERADOR_ARITMETICO = [\+|\*|\-|\/]
@@ -31,25 +28,27 @@ NAO                 = "!"
 INICIO_BLOCO        = "{"
 FIM_BLOCO           = "}"
 ATRIBUICAO			= "="
-
+LINHA				= "\n"
+COMENTARIO			= @@(.)*
 
 OPERADOR_RELACIONAL = {IGUAL}|{NAO_IGUAL}|{MENOR}|{MAIOR}|{MENOR_IGUAL}|{MAIOR_IGUAL}
 OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 %%
-
-"then"                  { imprimir("Palavra reservada THEN", yytext()); }
-"if"                    { imprimir("Palavra reservada IF", yytext()); }
-"for"                   { imprimir("Palavra reservada FOR", yytext()); }
-"while"                 { imprimir("Palavra reservada WHILE", yytext()); }
-{ID}                    { imprimir("Identificador", yytext()); }
-{OPERADOR_ARITMETICO}   { imprimir("Operador", yytext()); }
-{NUMEROS_NATURAIS}      { imprimir("Inteiro", yytext()); }
-{TEXTO}                 { imprimir("String", yytext()); }
-{NUMEROS_REIAS}         { imprimir("Real", yytext()); }
-{OPERADOR_LOGICO}       { imprimir("Operador Lógico", yytext()); }
-{OPERADOR_RELACIONAL}   { imprimir("Operador Relacional", yytext()); }
-{INICIO_BLOCO}          { imprimir("Inicio do bloco de código", yytext()); }
-{FIM_BLOCO}             { imprimir("Fim do bloco de código", yytext()); }
-{ATRIBUICAO}			{ imprimir("Fim do bloco de código", yytext());}
-{BRANCO}                { }
-.                       {throw new RuntimeException("Caractere inválido: '"+ yytext()+"'"); }
+COMENTARIO				{ lexeme = yytext(); return COMENTARIO;}
+LINHA					{ lexeme = yytext(); return LINHA;}
+"then"                  { lexeme = yytext(); return THEN; }
+"if"                    { lexeme = yytext(); return IF; }
+"for"                   { lexeme = yytext(); return FOR; }
+"while"                 { lexeme = yytext(); return WHILE; }
+{ID}                    { lexeme = yytext(); return ID; }
+{OPERADOR_ARITMETICO}   { lexeme = yytext(); return OPERADOR_ARITMETICO; }
+{NUMEROS_NATURAIS}      { lexeme = yytext(); return NUMEROS_NATURAIS; }
+{TEXTO}                 { lexeme = yytext(); return TEXTO; }
+{NUMEROS_REIAS}         { lexeme = yytext(); return NUMEROS_REIAS; }
+{OPERADOR_LOGICO}       { lexeme = yytext(); return OPERADOR_LOGICO; }
+{OPERADOR_RELACIONAL}   { lexeme = yytext(); return OPERADOR_RELACIONAL; }
+{INICIO_BLOCO}          { lexeme = yytext(); return INICIO_BLOCO; }
+{FIM_BLOCO}             { lexeme = yytext(); return FIM_BLOCO; }
+{ATRIBUICAO}			{ lexeme = yytext(); return ATRIBUICAO; }
+{BRANCO}                { return BRANCO; }
+.                       { return ERROR; }
