@@ -183,9 +183,9 @@ public class TelaGerador extends javax.swing.JFrame {
         while (true) {
             Token token = lexical.yylex();
             if (token == null) {
-
+                System.out.println(resultado);
                 txtSaida.setText(resultado);
-
+                
                 return;
             }
             switch (token) {
@@ -204,7 +204,10 @@ public class TelaGerador extends javax.swing.JFrame {
                     //cont++;
                     resultado = resultado + "Linha: " + cont + "<Operador_Atribuição> " + lexical.lexeme + "\n";
                     break;
-
+                case FIM_COMANDO:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + "<Fim_comando> " + lexical.lexeme + "\n";
+                    break;
                 case OPERADOR_RELACIONAL:
                     //cont++;
                     resultado = resultado + "Linha: " + cont + "<Operador_Relacional> " + lexical.lexeme + "\n";
@@ -221,7 +224,7 @@ public class TelaGerador extends javax.swing.JFrame {
 
                 case ERROR:
                     //cont ++;                    
-                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido \n";
+                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido"+lexical.lexeme.toString()+ "\n";
                     break;
 
                 case ID:
@@ -262,7 +265,10 @@ public class TelaGerador extends javax.swing.JFrame {
                     //cont++;
                     resultado = resultado + "Linha: " + cont + "<Inicio_algoritmo>" + lexical.lexeme + "\n";
                     break;
-
+                 case BRANCO:
+                    //cont ++;
+                    //resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
+                    break;
                 case FIM_BLOCO:
                     //cont ++;
                     resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
