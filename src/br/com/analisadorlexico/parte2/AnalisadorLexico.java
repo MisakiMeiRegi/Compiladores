@@ -33,15 +33,14 @@ class AnalisadorLexico {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\1\1\1\1\1\1\1\1\1\22\0\1\1\1\12\4\0"+
-    "\1\10\1\5\2\0\1\2\1\6\1\7\1\2\1\0\1\2\12\4"+
-    "\2\0\1\13\1\11\1\13\1\0\1\0\1\24\1\3\1\16\1\3"+
-    "\1\21\2\3\1\30\1\26\2\3\1\27\1\20\1\22\1\17\2\3"+
-    "\1\25\1\3\1\23\6\3\4\0\1\3\1\0\4\3\1\33\1\36"+
-    "\1\3\1\32\1\35\2\3\1\42\1\3\1\34\1\37\2\3\1\40"+
-    "\1\3\1\31\2\3\1\41\3\3\1\14\1\3\1\15\7\0\1\1"+
-    "\32\0\1\1\u15df\0\1\1\u097f\0\13\1\35\0\1\1\1\1\5\0"+
-    "\1\1\57\0\1\1\u0fa0\0\1\1\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
+    "\11\0\1\1\1\21\1\22\1\22\1\21\22\0\1\1\1\14\2\0"+
+    "\1\20\1\0\1\12\1\6\2\0\1\2\1\10\1\11\1\2\1\0"+
+    "\1\2\12\5\2\0\1\15\1\13\1\15\2\0\1\27\6\4\1\26"+
+    "\1\24\2\4\1\23\1\4\1\25\14\4\4\0\1\4\1\0\4\4"+
+    "\1\32\1\35\1\4\1\31\1\34\2\4\1\41\1\4\1\33\1\36"+
+    "\2\4\1\37\1\4\1\30\2\4\1\40\3\4\1\16\1\3\1\17"+
+    "\7\0\1\22\32\0\1\7\u15df\0\1\7\u097f\0\13\7\35\0\1\22"+
+    "\1\22\5\0\1\7\57\0\1\7\u0fa0\0\1\7\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
 
   /** 
    * Translates characters to character classes
@@ -54,13 +53,13 @@ class AnalisadorLexico {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\1\3\1\4\1\1\1\5\2\2\1\6"+
-    "\1\7\1\10\1\11\1\12\6\1\2\0\1\13\1\7"+
-    "\1\10\3\1\1\14\2\1\1\15\3\1\1\16\3\1"+
-    "\1\17\2\1\1\20\1\21\4\1\1\22";
+    "\1\1\1\2\1\3\1\4\2\1\1\5\2\2\1\6"+
+    "\1\7\1\10\1\11\1\12\1\13\5\1\2\0\1\14"+
+    "\1\7\1\10\2\1\1\15\2\1\1\16\2\1\1\17"+
+    "\2\1\1\20\1\1\1\21\1\22";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[48];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -85,15 +84,14 @@ class AnalisadorLexico {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\43\0\106\0\43\0\151\0\214\0\257\0\322"+
-    "\0\365\0\365\0\365\0\43\0\43\0\u0118\0\u013b\0\u015e"+
-    "\0\u0181\0\u01a4\0\u01c7\0\u01ea\0\257\0\43\0\43\0\43"+
-    "\0\u020d\0\u0230\0\u0253\0\151\0\u0276\0\u0299\0\u01ea\0\u02bc"+
-    "\0\u02df\0\u0302\0\151\0\u0325\0\u0348\0\u036b\0\151\0\u038e"+
-    "\0\u03b1\0\151\0\151\0\u03d4\0\u03f7\0\u041a\0\u043d\0\151";
+    "\0\0\0\42\0\104\0\42\0\146\0\210\0\252\0\314"+
+    "\0\356\0\u0110\0\u0110\0\u0110\0\42\0\42\0\u0132\0\u0154"+
+    "\0\u0176\0\u0198\0\u01ba\0\u01dc\0\u01fe\0\314\0\42\0\42"+
+    "\0\42\0\u0220\0\u0242\0\210\0\u0264\0\u0286\0\u01fe\0\u02a8"+
+    "\0\u02ca\0\210\0\u02ec\0\u030e\0\210\0\u0330\0\210\0\210";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[48];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -116,33 +114,28 @@ class AnalisadorLexico {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\4\1\2"+
-    "\1\10\1\11\1\12\1\13\1\14\1\15\1\16\10\5"+
-    "\1\17\1\5\1\20\3\5\1\21\1\22\2\5\1\23"+
-    "\1\5\44\0\1\3\44\0\1\5\12\0\25\5\4\0"+
-    "\1\6\2\0\1\24\34\0\1\25\1\0\2\25\1\26"+
-    "\1\25\7\0\25\25\10\0\1\27\43\0\1\30\34\0"+
-    "\1\5\12\0\1\5\1\31\23\5\3\0\1\5\12\0"+
-    "\10\5\1\32\14\5\3\0\1\5\12\0\14\5\1\33"+
-    "\10\5\3\0\1\5\12\0\20\5\1\34\4\5\3\0"+
-    "\1\5\12\0\21\5\1\35\3\5\3\0\1\5\12\0"+
-    "\14\5\1\36\10\5\4\0\1\37\41\0\1\5\12\0"+
-    "\2\5\1\40\22\5\3\0\1\5\12\0\4\5\1\41"+
-    "\20\5\3\0\1\5\12\0\15\5\1\42\7\5\3\0"+
-    "\1\5\12\0\22\5\1\43\2\5\3\0\1\5\12\0"+
-    "\17\5\1\44\5\5\3\0\1\5\12\0\3\5\1\45"+
-    "\21\5\3\0\1\5\12\0\12\5\1\46\12\5\3\0"+
-    "\1\5\12\0\16\5\1\47\6\5\3\0\1\5\12\0"+
-    "\24\5\1\50\3\0\1\5\12\0\4\5\1\51\20\5"+
-    "\3\0\1\5\12\0\6\5\1\52\16\5\3\0\1\5"+
-    "\12\0\15\5\1\53\7\5\3\0\1\5\12\0\5\5"+
-    "\1\54\17\5\3\0\1\5\12\0\6\5\1\55\16\5"+
-    "\3\0\1\5\12\0\7\5\1\56\15\5\3\0\1\5"+
-    "\12\0\10\5\1\57\14\5\3\0\1\5\12\0\1\5"+
-    "\1\60\23\5";
+    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\2"+
+    "\1\4\1\2\1\11\1\12\1\13\1\14\1\15\1\16"+
+    "\1\17\1\3\1\0\1\20\4\6\1\21\3\6\1\22"+
+    "\1\23\2\6\1\24\1\6\43\0\1\3\1\0\1\3"+
+    "\15\0\1\3\21\0\1\3\1\0\1\5\1\6\14\0"+
+    "\1\3\1\0\17\6\3\0\2\6\16\0\17\6\5\0"+
+    "\1\7\3\0\1\25\31\0\1\26\1\0\3\26\1\27"+
+    "\2\26\10\0\21\26\12\0\1\30\42\0\1\31\26\0"+
+    "\21\17\2\0\17\17\3\0\2\6\16\0\1\6\1\32"+
+    "\15\6\3\0\2\6\16\0\6\6\1\33\10\6\3\0"+
+    "\2\6\16\0\12\6\1\34\4\6\3\0\2\6\16\0"+
+    "\13\6\1\35\3\6\3\0\2\6\16\0\6\6\1\36"+
+    "\10\6\5\0\1\37\37\0\2\6\16\0\2\6\1\40"+
+    "\14\6\3\0\2\6\16\0\7\6\1\41\7\6\3\0"+
+    "\2\6\16\0\14\6\1\42\2\6\3\0\2\6\16\0"+
+    "\11\6\1\43\5\6\3\0\2\6\16\0\3\6\1\44"+
+    "\13\6\3\0\2\6\16\0\10\6\1\45\6\6\3\0"+
+    "\2\6\16\0\16\6\1\46\3\0\2\6\16\0\4\6"+
+    "\1\47\12\6\3\0\2\6\16\0\7\6\1\50\7\6";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[1120];
+    int [] result = new int[850];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -180,11 +173,11 @@ class AnalisadorLexico {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\1\11\1\1\1\11\7\1\2\11\6\1\2\0"+
-    "\3\11\30\1";
+    "\1\1\1\11\1\1\1\11\10\1\2\11\6\1\2\0"+
+    "\3\11\17\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[48];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -283,7 +276,7 @@ public String lexeme;
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 204) {
+    while (i < 188) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -586,7 +579,7 @@ public String lexeme;
             }
           case 20: break;
           case 3: 
-            { return BRANCO;
+            { 
             }
           case 21: break;
           case 4: 
@@ -618,35 +611,35 @@ public String lexeme;
             }
           case 28: break;
           case 11: 
-            { lexeme = yytext(); return TEXTO;
+            { lexeme = yytext(); return COMENTARIO;
             }
           case 29: break;
           case 12: 
-            { lexeme = yytext(); return IF;
+            { lexeme = yytext(); return TEXTO;
             }
           case 30: break;
           case 13: 
-            { lexeme = yytext(); return NUMEROS_REIAS;
+            { lexeme = yytext(); return IF;
             }
           case 31: break;
           case 14: 
-            { lexeme = yytext(); return FOR;
+            { lexeme = yytext(); return NUMEROS_REIAS;
             }
           case 32: break;
           case 15: 
-            { lexeme = yytext(); return THEN;
+            { lexeme = yytext(); return FOR;
             }
           case 33: break;
           case 16: 
-            { lexeme = yytext(); return LINHA;
+            { lexeme = yytext(); return THEN;
             }
           case 34: break;
           case 17: 
-            { lexeme = yytext(); return WHILE;
+            { lexeme = yytext(); return LINHA;
             }
           case 35: break;
           case 18: 
-            { lexeme = yytext(); return COMENTARIO;
+            { lexeme = yytext(); return WHILE;
             }
           case 36: break;
           default:

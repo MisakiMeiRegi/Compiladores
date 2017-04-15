@@ -10,7 +10,7 @@ public String lexeme;
 %class AnalisadorLexico
 %type Token
 
-BRANCO              = [\s]*
+BRANCO              = [ |\n|\t|\r]*
 OPERADOR_ARITMETICO = [\+|\*|\-|\/]
 ID                  = [_|[a-zA-Z]]*
 NUMEROS_NATURAIS    = [0-9]+
@@ -28,13 +28,12 @@ NAO                 = "!"
 INICIO_BLOCO        = "{"
 FIM_BLOCO           = "}"
 ATRIBUICAO			= "="
-LINHA				= "\n"
-COMENTARIO			= @@(.)*
+LINHA				= {BRANCO}
 
 OPERADOR_RELACIONAL = {IGUAL}|{NAO_IGUAL}|{MENOR}|{MAIOR}|{MENOR_IGUAL}|{MAIOR_IGUAL}
 OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 %%
-COMENTARIO				{ lexeme = yytext(); return COMENTARIO;}
+(["$$"].*)				{ lexeme = yytext(); return COMENTARIO;}
 LINHA					{ lexeme = yytext(); return LINHA;}
 "then"                  { lexeme = yytext(); return THEN; }
 "if"                    { lexeme = yytext(); return IF; }
@@ -50,5 +49,5 @@ LINHA					{ lexeme = yytext(); return LINHA;}
 {INICIO_BLOCO}          { lexeme = yytext(); return INICIO_BLOCO; }
 {FIM_BLOCO}             { lexeme = yytext(); return FIM_BLOCO; }
 {ATRIBUICAO}			{ lexeme = yytext(); return ATRIBUICAO; }
-{BRANCO}                { return BRANCO; }
+{BRANCO}                { }
 .                       { return ERROR; }
