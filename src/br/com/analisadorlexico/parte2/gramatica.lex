@@ -14,7 +14,7 @@ LINHA               =  \r|\n|\r\n
 OPERADOR_ARITMETICO = [\+|\*|\-|\/]
 ID                  = [_|[a-zA-Z]]*
 NUMEROS_NATURAIS    = [0-9]+
-TEXTO               = '[\s|_|a-zA-Z|0-9|\+]*'
+TEXTO               = '.*'
 NUMEROS_REIAS       = [0-9]+,[0-9]+
 EXPOENTE            = \^
 OU                  = "||"
@@ -57,4 +57,4 @@ OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 {LINHA}					{ lexeme = yytext(); return LINHA;}
 (["$$"].*)				{ lexeme = yytext(); return COMENTARIO;}
 
-.                       { return ERROR; }
+.                       { lexeme = yytext(); return ERROR; }

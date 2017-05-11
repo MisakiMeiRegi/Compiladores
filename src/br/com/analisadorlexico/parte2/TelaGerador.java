@@ -5,12 +5,18 @@
  */
 package br.com.analisadorlexico.parte2;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -22,6 +28,7 @@ public class TelaGerador extends javax.swing.JFrame {
      * Creates new form TelaGerador
      */
     JFileChooser file;
+    String textoFonte = "";
 
     public TelaGerador() {
         initComponents();
@@ -177,7 +184,7 @@ public class TelaGerador extends javax.swing.JFrame {
         String expr;
         //jText = textArea1;
 
-        AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(txtEntrada.getText()));
+        AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(textoFonte));
         String resultado = "";
 
         while (true) {
@@ -185,7 +192,7 @@ public class TelaGerador extends javax.swing.JFrame {
             if (token == null) {
                 System.out.println(resultado);
                 txtSaida.setText(resultado);
-                
+
                 return;
             }
             switch (token) {
@@ -224,7 +231,7 @@ public class TelaGerador extends javax.swing.JFrame {
 
                 case ERROR:
                     //cont ++;                    
-                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido"+lexical.lexeme.toString()+ "\n";
+                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido" + lexical.lexeme + "\n";
                     break;
 
                 case ID:
@@ -265,7 +272,7 @@ public class TelaGerador extends javax.swing.JFrame {
                     //cont++;
                     resultado = resultado + "Linha: " + cont + "<Inicio_algoritmo>" + lexical.lexeme + "\n";
                     break;
-                 case BRANCO:
+                case BRANCO:
                     //cont ++;
                     //resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
                     break;
@@ -286,6 +293,8 @@ public class TelaGerador extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         file = new JFileChooser();
         file.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        file.setCurrentDirectory(new File(".\\src\\br\\com\\analisadorlexico\\parte2"));
+        file.setFileFilter(new FileNameExtensionFilter("Apenas tipos lex", "lex"));
         int i = file.showSaveDialog(null);
         caminhoGramatica.setText(file.getCurrentDirectory().getPath());
         btnGerar.setEnabled(true);
@@ -293,21 +302,60 @@ public class TelaGerador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnGerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarActionPerformed
-
+        JFileChooser arquivoFonteCaminho = null;
+        txtEntrada.setEnabled(false);
+        txtEntrada.setText("");
+        txtSaida.setText("");
+        textoFonte="";
         jflex.Main.generate(file.getSelectedFile());
+        int op = JOptionPane.showConfirmDialog(rootPane, "Gostaria de informar um arquivo?");
+        switch (op) {
+            case 0:
+                arquivoFonteCaminho = new JFileChooser();
+                arquivoFonteCaminho.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                arquivoFonteCaminho.setFileFilter(new FileNameExtensionFilter("prl", "prl"));
+                int i = arquivoFonteCaminho.showSaveDialog(null);
+                textoFonte = retornaArquivoLido(arquivoFonteCaminho.getSelectedFile());
+                break;
+
+            case 1:
+
+                txtEntrada.setEnabled(true);
+
+                break;
+        }
         btnAnalisar.setEnabled(true);
-        txtEntrada.setEnabled(true);
 
     }//GEN-LAST:event_btnGerarActionPerformed
 
     private void btnAnalisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisarActionPerformed
-        AnalisadorLexico lexical = new AnalisadorLexico(new StringReader(txtEntrada.getText()));
+        if (txtEntrada.isEnabled()) {
+            textoFonte = txtEntrada.getText();
+        }
+        System.out.println(textoFonte);
+
         try {
             executar();
         } catch (Exception ex) {
             Logger.getLogger(TelaGerador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAnalisarActionPerformed
+
+    private String retornaArquivoLido(File caminho) {
+        String texto = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(caminho));
+            for (String i = br.readLine(); i != null; i = br.readLine()) {
+                texto += i;
+            }
+
+            return texto;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
     /**
      * @param args the command line arguments

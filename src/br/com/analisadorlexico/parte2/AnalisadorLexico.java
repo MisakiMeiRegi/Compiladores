@@ -33,13 +33,12 @@ class AnalisadorLexico {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\20\1\2\1\35\1\36\1\1\22\0\1\20\1\14\2\0"+
-    "\1\34\1\0\1\12\1\6\2\0\1\3\1\10\1\11\1\3\1\0"+
-    "\1\3\12\5\2\0\1\15\1\13\1\15\2\0\32\4\4\0\1\4"+
-    "\1\0\4\4\1\26\1\21\1\4\1\25\1\22\2\4\1\33\1\23"+
-    "\1\27\1\30\2\4\1\31\1\4\1\24\2\4\1\32\3\4\1\16"+
-    "\1\4\1\17\7\0\1\35\32\0\1\7\u15df\0\1\7\u097f\0\13\7"+
-    "\35\0\1\35\1\35\5\0\1\7\57\0\1\7\u0fa0\0\1\7\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\ud00f\0";
+    "\11\0\1\22\1\2\1\7\1\10\1\1\22\0\1\22\1\15\2\0"+
+    "\1\36\1\0\1\13\1\6\2\0\2\3\1\11\1\3\1\0\1\3"+
+    "\12\5\1\0\1\21\1\16\1\14\1\16\2\0\32\4\3\0\1\12"+
+    "\1\4\1\0\4\4\1\30\1\23\1\4\1\27\1\24\2\4\1\35"+
+    "\1\25\1\31\1\32\2\4\1\33\1\4\1\26\2\4\1\34\3\4"+
+    "\1\17\1\4\1\20\7\0\1\7\u1fa2\0\1\7\1\7\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -52,13 +51,13 @@ class AnalisadorLexico {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\1\1\2\2\3\1\4\1\1\1\5\2\2\1\6"+
-    "\1\7\1\10\1\11\1\12\1\13\4\1\1\14\2\0"+
-    "\1\15\1\7\1\10\2\1\1\16\2\1\1\17\1\20"+
-    "\1\21\2\1\1\22\1\1\1\23";
+    "\1\1\1\2\2\3\1\4\1\1\1\5\1\2\1\6"+
+    "\1\7\1\2\1\10\1\11\1\12\1\13\1\14\1\15"+
+    "\4\1\1\16\2\0\1\17\1\11\1\12\2\1\1\20"+
+    "\2\1\1\21\1\22\1\23\2\1\1\24\1\1\1\25";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[38];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -84,13 +83,13 @@ class AnalisadorLexico {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\37\0\76\0\37\0\37\0\135\0\174\0\233"+
-    "\0\272\0\331\0\331\0\331\0\37\0\37\0\37\0\370"+
-    "\0\u0117\0\u0136\0\u0155\0\u0174\0\u0193\0\233\0\37\0\37"+
-    "\0\37\0\u01b2\0\u01d1\0\135\0\u01f0\0\u020f\0\u0193\0\135"+
-    "\0\135\0\u022e\0\u024d\0\135\0\u026c\0\135";
+    "\0\37\0\37\0\272\0\331\0\331\0\331\0\37\0\37"+
+    "\0\37\0\370\0\u0117\0\u0136\0\u0155\0\u0174\0\u0193\0\233"+
+    "\0\233\0\37\0\37\0\u01b2\0\u01d1\0\135\0\u01f0\0\u020f"+
+    "\0\u0193\0\135\0\135\0\u022e\0\u024d\0\135\0\u026c\0\135";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[38];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -113,22 +112,22 @@ class AnalisadorLexico {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\2"+
-    "\1\5\1\2\1\11\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\1\20\1\21\1\6\1\22\5\6\1\23\1\6"+
-    "\1\24\1\0\1\17\41\0\1\4\40\0\1\6\14\0"+
-    "\13\6\10\0\1\7\3\0\1\25\26\0\2\26\1\0"+
-    "\2\26\1\27\2\26\7\0\14\26\1\0\2\26\12\0"+
-    "\1\30\37\0\1\31\27\0\1\6\14\0\1\6\1\32"+
-    "\5\6\1\33\3\6\7\0\1\6\14\0\1\34\12\6"+
-    "\7\0\1\6\14\0\4\6\1\35\6\6\7\0\1\6"+
-    "\14\0\4\6\1\36\6\6\3\0\1\24\2\0\32\24"+
-    "\7\0\1\37\35\0\1\6\14\0\2\6\1\40\10\6"+
-    "\7\0\1\6\14\0\10\6\1\41\2\6\7\0\1\6"+
-    "\14\0\5\6\1\42\5\6\7\0\1\6\14\0\1\6"+
-    "\1\43\11\6\7\0\1\6\14\0\6\6\1\44\4\6"+
-    "\7\0\1\6\14\0\12\6\1\45\7\0\1\6\14\0"+
-    "\5\6\1\46\5\6\3\0";
+    "\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\0"+
+    "\1\11\1\2\1\12\1\13\1\14\1\15\1\16\1\17"+
+    "\1\20\1\21\1\11\1\22\1\23\1\6\1\24\5\6"+
+    "\1\25\1\6\1\26\41\0\1\4\40\0\1\6\16\0"+
+    "\13\6\6\0\1\7\3\0\1\27\25\0\1\30\2\0"+
+    "\3\30\1\31\2\0\26\30\13\0\1\32\37\0\1\33"+
+    "\26\0\1\6\16\0\1\6\1\34\5\6\1\35\3\6"+
+    "\5\0\1\6\16\0\1\36\12\6\5\0\1\6\16\0"+
+    "\4\6\1\37\6\6\5\0\1\6\16\0\4\6\1\40"+
+    "\6\6\1\0\1\26\2\0\4\26\2\0\26\26\5\0"+
+    "\1\41\35\0\1\6\16\0\2\6\1\42\10\6\5\0"+
+    "\1\6\16\0\10\6\1\43\2\6\5\0\1\6\16\0"+
+    "\5\6\1\44\5\6\5\0\1\6\16\0\1\6\1\45"+
+    "\11\6\5\0\1\6\16\0\6\6\1\46\4\6\5\0"+
+    "\1\6\16\0\12\6\1\47\5\0\1\6\16\0\5\6"+
+    "\1\50\5\6\1\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[651];
@@ -169,11 +168,11 @@ class AnalisadorLexico {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\1\1\11\1\1\2\11\7\1\3\11\5\1\2\0"+
-    "\3\11\15\1";
+    "\1\1\1\11\1\1\2\11\3\1\2\11\4\1\3\11"+
+    "\5\1\2\0\1\1\2\11\15\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[38];
+    int [] result = new int[40];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -272,7 +271,7 @@ public String lexeme;
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 172) {
+    while (i < 150) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -569,79 +568,87 @@ public String lexeme;
           case 1: 
             { lexeme = yytext(); return ID;
             }
-          case 20: break;
+          case 22: break;
           case 2: 
-            { return ERROR;
+            { lexeme = yytext(); return ERROR;
             }
-          case 21: break;
+          case 23: break;
           case 3: 
             { lexeme = yytext(); return LINHA;
             }
-          case 22: break;
+          case 24: break;
           case 4: 
             { lexeme = yytext(); return OPERADOR_ARITMETICO;
             }
-          case 23: break;
+          case 25: break;
           case 5: 
             { lexeme = yytext(); return NUMEROS_NATURAIS;
             }
-          case 24: break;
-          case 6: 
-            { lexeme = yytext(); return ATRIBUICAO;
-            }
-          case 25: break;
-          case 7: 
-            { lexeme = yytext(); return OPERADOR_LOGICO;
-            }
           case 26: break;
-          case 8: 
-            { lexeme = yytext(); return OPERADOR_RELACIONAL;
-            }
-          case 27: break;
-          case 9: 
-            { lexeme = yytext(); return INICIO_BLOCO;
-            }
-          case 28: break;
-          case 10: 
-            { lexeme = yytext(); return FIM_BLOCO;
-            }
-          case 29: break;
-          case 11: 
+          case 6: 
             { lexeme = yytext(); return BRANCO;
             }
+          case 27: break;
+          case 7: 
+            { lexeme = yytext(); return EXPOENTE;
+            }
+          case 28: break;
+          case 8: 
+            { lexeme = yytext(); return ATRIBUICAO;
+            }
+          case 29: break;
+          case 9: 
+            { lexeme = yytext(); return OPERADOR_LOGICO;
+            }
           case 30: break;
-          case 12: 
-            { lexeme = yytext(); return COMENTARIO;
+          case 10: 
+            { lexeme = yytext(); return OPERADOR_RELACIONAL;
             }
           case 31: break;
-          case 13: 
-            { lexeme = yytext(); return TEXTO;
+          case 11: 
+            { lexeme = yytext(); return INICIO_BLOCO;
             }
           case 32: break;
-          case 14: 
-            { lexeme = yytext(); return IF;
+          case 12: 
+            { lexeme = yytext(); return FIM_BLOCO;
             }
           case 33: break;
-          case 15: 
-            { lexeme = yytext(); return NUMEROS_REIAS;
+          case 13: 
+            { lexeme = yytext(); return FIM_LINHA;
             }
           case 34: break;
-          case 16: 
-            { lexeme = yytext(); return FIM_COMANDO;
+          case 14: 
+            { lexeme = yytext(); return COMENTARIO;
             }
           case 35: break;
-          case 17: 
-            { lexeme = yytext(); return FOR;
+          case 15: 
+            { lexeme = yytext(); return TEXTO;
             }
           case 36: break;
-          case 18: 
-            { lexeme = yytext(); return THEN;
+          case 16: 
+            { lexeme = yytext(); return IF;
             }
           case 37: break;
-          case 19: 
-            { lexeme = yytext(); return WHILE;
+          case 17: 
+            { lexeme = yytext(); return NUMEROS_REIAS;
             }
           case 38: break;
+          case 18: 
+            { lexeme = yytext(); return FIM_COMANDO;
+            }
+          case 39: break;
+          case 19: 
+            { lexeme = yytext(); return FOR;
+            }
+          case 40: break;
+          case 20: 
+            { lexeme = yytext(); return THEN;
+            }
+          case 41: break;
+          case 21: 
+            { lexeme = yytext(); return WHILE;
+            }
+          case 42: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
