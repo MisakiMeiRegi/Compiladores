@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package br.com.analisadorlexico.parte2;
-
+/**
+* alteração
+*/
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
