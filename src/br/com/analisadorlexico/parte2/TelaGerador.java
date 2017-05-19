@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.analisadorlexico.parte2;
-/**
-* alteração
-*/
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -154,7 +152,7 @@ public class TelaGerador extends javax.swing.JFrame {
 
     public void executar() throws Exception {
         int cont = 0;
-
+        int coluna =1 ;
         String expr;
         //jText = textArea1;
 
@@ -172,98 +170,119 @@ public class TelaGerador extends javax.swing.JFrame {
             switch (token) {
 
                 case OPERADOR_ARITMETICO:
-                    //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Operador_Aritmético> " + lexical.lexeme + "\n";
+                    
+                    resultado = resultado + "Linha: " + cont + " <Operador_Aritmético> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case OPERADOR_LOGICO:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <Operador_Lógico> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Lógico> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case ATRIBUICAO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Operador_Atribuição> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Atribuição> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case FIM_COMANDO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Fim_comando> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_comando> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case OPERADOR_RELACIONAL:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Operador_Relacional> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Relacional> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case COMENTARIO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Comentario> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Comentario> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case LINHA:
                     cont++;
+                    coluna=1;
                     break;
 
                 case ERROR:
                     //cont ++;                    
-                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido"+lexical.lexeme.toString()+ "\n";
+                    resultado = resultado + "Erro na linha " + cont + ": Símbolo não reconhecido"+lexical.lexeme.toString()+ " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case ID:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <ID> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <ID> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
 
                 case NUMEROS_REIAS:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Numeros_reais> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Numeros_reais> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case TEXTO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Texto> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Texto> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case THEN:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Então> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Então> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case WHILE:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case FOR:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case IF:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Condicional> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Condicional> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case NUMEROS_NATURAIS:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Numero> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Numero> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case EXPOENTE:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <Expoente> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Expoente> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case INICIO_BLOCO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Inicio_algoritmo> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Inicio_algoritmo> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                  case BRANCO:
-                    //cont ++;
-                    //resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
+                    coluna++;
+                     
                     break;
                 case FIM_BLOCO:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <Fim_algoritmo> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_algoritmo> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 case FIM_LINHA:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <Fim_linha> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_linha> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
                 default:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <" + lexical.lexeme + "> " + cont++;
+                    resultado = resultado + "Linha: " + cont + " <" + lexical.lexeme + "> " + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
                     break;
             }
         }
