@@ -34,6 +34,7 @@ public class TelaGerador extends javax.swing.JFrame {
 
     public TelaGerador() {
         initComponents();
+        
         txtSaida.setEditable(false);
         btnAnalisar.setEnabled(false);
         btnGerar.setEnabled(true);
@@ -63,7 +64,7 @@ public class TelaGerador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jLabel1.setText("Gerador léxico");
+        jLabel1.setText("Analisador léxico");
 
         txtEntrada.setColumns(20);
         txtEntrada.setRows(5);
@@ -76,7 +77,7 @@ public class TelaGerador extends javax.swing.JFrame {
             }
         });
 
-        btnGerar.setText("Gerar Analisador Léxico");
+        btnGerar.setText("Selecionar Fonte");
         btnGerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerarActionPerformed(evt);
@@ -100,9 +101,6 @@ public class TelaGerador extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnAnalisar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,24 +113,26 @@ public class TelaGerador extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(246, 246, 246)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGerar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addComponent(btnGerar)
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAnalisar)
                 .addContainerGap())
@@ -173,30 +173,30 @@ public class TelaGerador extends javax.swing.JFrame {
 
                 case OPERADOR_ARITMETICO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Operador_Aritmético> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Aritmético> " + lexical.lexeme + "\n";
                     break;
 
                 case OPERADOR_LOGICO:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + "<Operador_Lógico> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Lógico> " + lexical.lexeme + "\n";
                     break;
 
                 case ATRIBUICAO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Operador_Atribuição> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Atribuição> " + lexical.lexeme + "\n";
                     break;
                 case FIM_COMANDO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Fim_comando> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_comando> " + lexical.lexeme + "\n";
                     break;
                 case OPERADOR_RELACIONAL:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Operador_Relacional> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Operador_Relacional> " + lexical.lexeme + "\n";
                     break;
 
                 case COMENTARIO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Comentario> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Comentario> " + lexical.lexeme + "\n";
                     break;
 
                 case LINHA:
@@ -210,44 +210,44 @@ public class TelaGerador extends javax.swing.JFrame {
 
                 case ID:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<ID> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <ID> " + lexical.lexeme + "\n";
                     break;
 
                 case NUMEROS_REIAS:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Numeros_reais> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Numeros_reais> " + lexical.lexeme + "\n";
                     break;
                 case TEXTO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Texto> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Texto> " + lexical.lexeme + "\n";
                     break;
                 case THEN:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Então> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Então> " + lexical.lexeme + "\n";
                     break;
                 case WHILE:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Laço> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + "\n";
                     break;
                 case FOR:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Laço> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Laço> " + lexical.lexeme + "\n";
                     break;
                 case IF:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Condicional> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Condicional> " + lexical.lexeme + "\n";
                     break;
                 case NUMEROS_NATURAIS:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Numero> " + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Numero> " + lexical.lexeme + "\n";
                     break;
                 case EXPOENTE:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + "<Expoente>" + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Expoente> " + lexical.lexeme + "\n";
                     break;
                 case INICIO_BLOCO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + "<Inicio_algoritmo>" + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Inicio_algoritmo> " + lexical.lexeme + "\n";
                     break;
                  case BRANCO:
                     //cont ++;
@@ -255,15 +255,15 @@ public class TelaGerador extends javax.swing.JFrame {
                     break;
                 case FIM_BLOCO:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + "<Fim_algoritmo>" + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_algoritmo> " + lexical.lexeme + "\n";
                     break;
                 case FIM_LINHA:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + "<Fim_linha>" + lexical.lexeme + "\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_linha> " + lexical.lexeme + "\n";
                     break;
                 default:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + "<" + lexical.lexeme + ">" + cont++;
+                    resultado = resultado + "Linha: " + cont + " <" + lexical.lexeme + "> " + cont++;
                     break;
             }
         }
