@@ -17,7 +17,7 @@ NUMEROS_NATURAIS    = [0-9]+
 TEXTO               = '.*'
 NUMEROS_REIAS       = [0-9]+,[0-9]+
 EXPOENTE            = \^
-OU                  = "||"
+OU                  = ":|"
 E                   = "&&"
 IGUAL               = "=="
 NAO_IGUAL           = "!="
