@@ -26,19 +26,23 @@ MAIOR               = ">"
 MAIOR_IGUAL         = ">="
 MENOR_IGUAL         = "<="
 NAO                 = "!"
-INICIO_BLOCO        = "{"
-FIM_BLOCO           = "}"
+CHAVE_INICIO        = "{"
+CHAVE_FIM           = "}"
 FIM_LINHA           = ";"
-ATRIBUICAO			= "="
+ATRIBUICAO	    = "="
+PARENTESES_INICIO   = "("
+PARENTESES_FIM      = ")"
 BRANCO				= [ \t\f]
 
 OPERADOR_RELACIONAL = {IGUAL}|{NAO_IGUAL}|{MENOR}|{MAIOR}|{MENOR_IGUAL}|{MAIOR_IGUAL}
 OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 
 %%
-"fim"					{ lexeme = yytext(); return FIM_COMANDO;}
+"inicio"                { lexeme = yytext(); return     INICIO;}
+"fim"			{ lexeme = yytext(); return FIM_COMANDO;}
 "then"                  { lexeme = yytext(); return THEN; }
 "if"                    { lexeme = yytext(); return IF; }
+"else"                    { lexeme = yytext(); return ELSE; }
 "for"                   { lexeme = yytext(); return FOR; }
 "while"                 { lexeme = yytext(); return WHILE; }
 {ID}                    { lexeme = yytext(); return ID; }
@@ -49,10 +53,12 @@ OPERADOR_LOGICO     = {OU}|{E}|{NAO}
 {OPERADOR_LOGICO}       { lexeme = yytext(); return OPERADOR_LOGICO; }
 {OPERADOR_RELACIONAL}   { lexeme = yytext(); return OPERADOR_RELACIONAL; }
 {EXPOENTE}              { lexeme = yytext(); return EXPOENTE; }
-{INICIO_BLOCO}          { lexeme = yytext(); return INICIO_BLOCO; }
-{FIM_BLOCO}             { lexeme = yytext(); return FIM_BLOCO; }
+{CHAVE_INICIO}          { lexeme = yytext(); return CHAVE_INICIO; }
+{CHAVE_FIM}             { lexeme = yytext(); return CHAVE_FIM; }
 {FIM_LINHA}				{ lexeme = yytext(); return FIM_LINHA;}
 {ATRIBUICAO}			{ lexeme = yytext(); return ATRIBUICAO; }
+{PARENTESES_INICIO}			{ lexeme = yytext(); return PARENTESES_INICIO; }
+{PARENTESES_FIM}			{ lexeme = yytext(); return PARENTESES_FIM; }
 {BRANCO}				{ lexeme = yytext(); return BRANCO;}
 {LINHA}					{ lexeme = yytext(); return LINHA;}
 (["$$"].*)				{ lexeme = yytext(); return COMENTARIO;}

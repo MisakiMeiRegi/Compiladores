@@ -188,7 +188,7 @@ public class TelaGerador extends javax.swing.JFrame {
                     break;
                 case FIM_COMANDO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Fim_comando> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    resultado = resultado + "Linha: " + cont + " <Fim_Programa> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
                 case OPERADOR_RELACIONAL:
@@ -250,6 +250,11 @@ public class TelaGerador extends javax.swing.JFrame {
                     resultado = resultado + "Linha: " + cont + " <Condicional> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
+                case ELSE:
+                    //cont++;
+                    resultado = resultado + "Linha: " + cont + " <Condicional> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
+                    break;
                 case NUMEROS_NATURAIS:
                     //cont++;
                     resultado = resultado + "Linha: " + cont + " <Numero> " + lexical.lexeme + " Coluna "+ coluna+"\n";
@@ -260,23 +265,38 @@ public class TelaGerador extends javax.swing.JFrame {
                     resultado = resultado + "Linha: " + cont + " <Expoente> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
-                case INICIO_BLOCO:
+                case CHAVE_INICIO:
                     //cont++;
-                    resultado = resultado + "Linha: " + cont + " <Inicio_algoritmo> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    resultado = resultado + "Linha: " + cont + " <Chave_Inicio> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
                  case BRANCO:
                     coluna++;
                      
                     break;
-                case FIM_BLOCO:
+                case CHAVE_FIM:
                     //cont ++;
-                    resultado = resultado + "Linha: " + cont + " <Fim_algoritmo> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    resultado = resultado + "Linha: " + cont + " <Chave_Fim> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
                 case FIM_LINHA:
                     //cont ++;
                     resultado = resultado + "Linha: " + cont + " <Fim_linha> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
+                    break;
+                case INICIO:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + " <Inicio_Programa> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
+                    break;
+                case PARENTESES_INICIO:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + " <Parenteses_Inicio> " + lexical.lexeme + " Coluna "+ coluna+"\n";
+                    coluna+=lexical.lexeme.length();
+                    break;
+                case PARENTESES_FIM:
+                    //cont ++;
+                    resultado = resultado + "Linha: " + cont + " <Parenteses_Fim> " + lexical.lexeme + " Coluna "+ coluna+"\n";
                     coluna+=lexical.lexeme.length();
                     break;
                 default:
