@@ -9,13 +9,13 @@ public String lexeme;
 
 %class AnalisadorLexico
 %type Token
-
+DIG                 = [0-9]
 LINHA               =  \r|\n|\r\n
 OPERADOR_ARITMETICO = [\+|\*|\-|\/]
 ID                  = [_|[a-zA-Z]]*
-NUMEROS_NATURAIS    = [0-9]+
+NUMEROS_NATURAIS    = {DIG}+
 TEXTO               = '.[^']*'
-NUMEROS_REIAS       = [0-9]+,[0-9]+
+NUMEROS_REIAS       = -{DIG}+,{DIG}+|{DIG}+,{DIG}+
 EXPOENTE            = \^
 OU                  = ":|"
 E                   = "&&"
