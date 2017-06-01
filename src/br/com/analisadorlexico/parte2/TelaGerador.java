@@ -355,7 +355,8 @@ public class TelaGerador extends javax.swing.JFrame {
         try {
             BufferedReader br = new BufferedReader(new FileReader(caminho));
             for (String i = br.readLine(); i != null; i = br.readLine()) {
-                texto += i;
+                texto += (i+"\n");
+                
             }
 
             return texto;
