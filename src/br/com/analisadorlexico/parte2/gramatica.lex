@@ -16,7 +16,8 @@ ID                  = [_|[a-zA-Z]]*
 NUMEROS_NATURAIS    = {DIG}+
 TEXTO               = '.[^']*'
 NUMEROS_REIAS       = -{DIG}+,{DIG}+|{DIG}+,{DIG}+
-EXPOENTE            = \^
+TODOS_NUMEROS       = {NUMEROS_REIAS} | {NUMEROS_NATURAIS}
+EXPOENTE            = {TODOS_NUMEROS} "e" {TODOS_NUMEROS}
 OU                  = ":|"
 E                   = "&&"
 IGUAL               = "=="
